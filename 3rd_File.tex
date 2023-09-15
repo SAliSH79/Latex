@@ -15,6 +15,9 @@
 \setcounter{secnumdepth}{4}
 \setdigitfont{Traditional Arabic}
 
+\newcommand{\dd}{\, \mathrm{d}}
+\newcommand{\mian}[2]{\frac{#1_1 + #1_2 + \dots + #1_{#2}}{n}}
+
 \defpersianfont\BNaz{B NAZANIN.TTF}
 \deflatinfont\Time{TIMES.TTF}
 
@@ -206,4 +209,33 @@ $
 \end{smallmatrix}
 $
 داریم که $ \dots $
+\chapter{توابع چند ضابطه ای}
+
+\begin{equation} \label{I}
+	|x| = 
+	\begin{cases}
+		x & x \ge 0, \\
+	   -x & x < 0.
+	\end{cases}
+\end{equation}
+در تابع \eqref{I} داریم می‌بینیم که ...
+\[
+A = \lbrace v: \text{ پیوسته است}\ v  \rbrace
+\]
+
+\chapter{ماکرو نویسی}
+% Our first Macro use case
+\[
+A \colon = \int_{0^{-}}^{\infty} \sin x \dd x
+\]
+
+\[
+\bar{y} = \mian{y}{m}, \bar{x} = \mian{x}{10}
+\]
+ 	یک بیت شعر :
+\begin{multicols}{2}
+شبانگه به سر قصد تاراج داشت \\ به یک گردش چرخ نیلوفری 
+	\\
+سحرگه نه تن سر، نه سر تاج داشت \\ نه تاجی به جا ماند و نه نادری
+\end{multicols}
 \end{document}
