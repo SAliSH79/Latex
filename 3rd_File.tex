@@ -8,13 +8,16 @@
 \usepackage{amssymb}
 \usepackage{breqn}
 \usepackage{amsfonts}
-\usepackage{amsmath}
+\usepackage{amsmath, amsthm}
 \usepackage{xepersian}
 
 \settextfont{Traditional Arabic}
 \setcounter{tocdepth}{4}
 \setcounter{secnumdepth}{4}
 \setdigitfont{Traditional Arabic}
+
+\newtheorem{thm}{قضیه}
+\newtheorem{Def}{تعریف}
 
 \newcommand{\dd}{\, \mathrm{d}}
 \newcommand{\mian}[2]{\frac{#1_1 + #1_2 + \dots + #1_{#2}}{n}}
@@ -289,5 +292,27 @@ A = \left\lbrace \frac{f(x)}{g(x)} \colon g(x) \neq 0 \right\rbrace
 	\item  
 	محمود
 \end{inparaitem}
+
+\chapter{محیط ها}
+\BNaz
+\begin{thm}
+	فرض کنید تابع $f$ پیوسته باشد ...
+\end{thm}
+
+\begin{thm}
+	فرض کنید تابع $sin x$ پیوسته باشد ...
+\end{thm}
+
+\begin{proof}
+	\[
+	\sin ^ 2 x + \cos ^2 x = 1
+	\]
+\end{proof}
+
+\section{تعریف}
+\begin{Def}[مثلث متساوی الاضلاع]
+تعریف مثلثی که سه ضلع آن برابر است....
+\end{Def}
+
 
 \end{document}
