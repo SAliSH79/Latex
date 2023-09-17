@@ -16,8 +16,8 @@
 \setcounter{secnumdepth}{4}
 \setdigitfont{Traditional Arabic}
 
-\newtheorem{thm}{قضیه}
-\newtheorem{Def}{تعریف}
+\newtheorem{thm}{قضیه}[chapter]
+\newtheorem{Def}{تعریف}[section]
 
 \newcommand{\dd}{\, \mathrm{d}}
 \newcommand{\mian}[2]{\frac{#1_1 + #1_2 + \dots + #1_{#2}}{n}}
@@ -237,13 +237,18 @@ A \colon = \int_{0^{-}}^{\infty} \sin x \dd x
 \bar{y} = \mian{y}{m}, \bar{x} = \mian{x}{10}
 \]
  	یک بیت شعر :
-\begin{multicols}{2}
-شبانگه به سر قصد تاراج داشت \\ به یک گردش چرخ نیلوفری 
-	\\
-سحرگه نه تن سر، نه سر تاج داشت \\ نه تاجی به جا ماند و نه نادری
-\end{multicols}
+ 	\vspace*{0.25cm}
+\\
+شبانگه به سر قصد تاراج داشت \hspace*{1.7cm} سحرگه نه تن سر، نه سر تاج داشت 
+\\
+به یک گردش چرخ نیلوفری \hspace*{2cm} نه تاجی به جا ماند و نه نادری
+
 
 \chapter{Items}
+
+\begin{Def}[مثلث ]
+	تعریف مثلثی که جمع سه زاویه آن برابر است با ۱۸۰ درجه....
+\end{Def}
 \Time
 \[
 \left\lvert \int_{0^-}^{\infty} \sin^2 x \right\rvert
