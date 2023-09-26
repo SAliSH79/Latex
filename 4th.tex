@@ -2,7 +2,7 @@
 
 \usepackage{setspace}
 \usepackage{paralist}
-\usepackage{multicol}
+\usepackage{multicol} %% Useful
 \usepackage{hyperref}
 \usepackage{shapepar}
 \usepackage{amssymb}
@@ -61,4 +61,20 @@
 \end{table}
 \\
 	در جدول \ref{Tab1} دیدیم که ...
+	
+\begin{table}[h!]
+	\begin{center}
+		\begin{tabular}{|c|c|r|}
+			\hline
+			&
+			\multicolumn{2}{|l|}{مشخصات فردی} \\
+			\cline{1-3}
+
+نام & نام خانوادگی & مقطع تحصیلی 
+\\
+\hline
+		\end{tabular}
+	\end{center}
+
+\end{table}
 \end{document}
