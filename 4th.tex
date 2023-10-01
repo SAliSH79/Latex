@@ -9,6 +9,7 @@
 \usepackage{breqn}
 \usepackage{amsfonts}
 \usepackage{amsmath, amsthm}
+\usepackage{caption}
 \usepackage{xepersian}
 
 \settextfont{Traditional Arabic}
@@ -87,6 +88,7 @@
 \chapter{\lr{$Pictures$ $Figures$}}
 چگونه عکس را به لاتک ضمیمه کنیم؟
 \begin{figure}[h!]
+	\caption*{text...}
 	\begin{center}
 		\includegraphics[width=8cm, height=5cm]{Capture.PNG}
 	\end{center}
@@ -94,6 +96,7 @@
 \label{Fig1}
 \end{figure}
 
-
+متن بعد از عکس ما، عکس \ref{Fig1}
+که برای آزمون زبان اینگلیسی بین المللی است.
 
 \end{document}
