@@ -8,6 +8,7 @@
 \usepackage{amssymb}
 \usepackage{breqn}
 \usepackage{amsfonts}
+\usepackage{subfigure}
 \usepackage{amsmath, amsthm}
 \usepackage{caption}
 \usepackage{xepersian}
@@ -86,6 +87,7 @@
 در جدول \ref{Tab2}
 ما شاهدیم که .....
 \chapter{\lr{$Pictures$ $Figures$}}
+\section{Figures}
 چگونه عکس را به لاتک ضمیمه کنیم؟
 \begin{figure}[h!]
 	\caption*{text...}
@@ -98,5 +100,29 @@
 
 متن بعد از عکس ما، عکس \ref{Fig1}
 که برای آزمون زبان اینگلیسی بین المللی است.
+\\
+
+\section{MultiFigures}
+ساختار چند عکسی...
+\begin{figure}[h!]
+	\begin{center}
+		\subfigure[Moscow]{
+		\includegraphics[height=4cm,width=5cm]{Moscow.jpg}	
+		\label{Fig2.1}
+		}
+	\hspace*{1cm}
+		\subfigure[Berlin]{
+		\includegraphics[height=4cm, width=5cm]{Berlin.jpg}
+		\label{Fig2.2}
+		}
+	\end{center}
+
+\end{figure}
+
+سپس در تصویر \ref{Fig2.2}
+می‌توان برلین را دید...
+
+
+
 
 \end{document}
