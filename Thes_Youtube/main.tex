@@ -1,0 +1,43 @@
+\documentclass[twoside]{report}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{geometry}
+
+\newgeometry{
+    top = 0.75in,
+    bottom = 0.75in,
+    outer = 0.75in,
+    inner = 1.5in,
+}
+
+
+\title{Thesis in YouTube \\
+{\Large University of YouTube }}
+\author{Ali Hosseini}
+\date{October 2023}
+
+\begin{document}
+
+\maketitle
+
+\chapter*{Abstract}
+This is a tutorial from YouTube which helps us to write a precise dissertation in Overleaf environment. 
+
+\chapter*{Dedication}
+For my beloved family $\cdots$
+
+\chapter*{Acknowledgements}
+Thank you $\cdots$
+
+\tableofcontents
+\listoffigures
+
+\include{Chapter1}
+\include{Chapter2}
+\include{Conclusions}
+\appendix
+\input{Appendix}
+
+\bibliographystyle{plain}
+\bibliography{ref}
+
+\end{document}
