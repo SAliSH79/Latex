@@ -9,8 +9,10 @@
 \usepackage{breqn}
 \usepackage{amsfonts}
 \usepackage{subfigure}
-\usepackage{amsmath, amsthm}
+\usepackage{amsmath, amsthm, amscd}
 \usepackage{caption}
+\usepackage{bidipoem}
+\usepackage[all]{xy}
 \usepackage{xepersian}
 
 \settextfont{Traditional Arabic}
@@ -37,6 +39,8 @@
 	\tableofcontents
 	\singlespacing
 	%...
+	\listoffigures
+	\listoftables
 	\Time
 \chapter{\lr{$tables$}}	
 \BNaz
@@ -100,7 +104,7 @@
 
 متن بعد از عکس ما، عکس \ref{Fig1}
 که برای آزمون زبان اینگلیسی بین المللی است.
-\\
+\vspace*{3cm}
 
 \section{MultiFigures}
 ساختار چند عکسی...
@@ -116,13 +120,42 @@
 		\label{Fig2.2}
 		}
 	\end{center}
-
+	\caption{\subref{Fig2.1} Moscow \subref{Fig2.2} Berlin}
 \end{figure}
-
+\\
 سپس در تصویر \ref{Fig2.2}
 می‌توان برلین را دید...
+\section{نمایه}
+برای نمایه باید از پکیج $ makeidx$
+استفاده کنیم...
+\chapter{$Poems$}
 
+\begin{traditionalpoem}
+	دریاب کنون که نعمتت هست به دست & 
+	کین دولت ملک می‌رود دست به دست \\
+	دمی آب خوردن پس از بدسگال &
+	به از عمر ۷۰ و ۸۰ سال \\
+\end{traditionalpoem}
 
+\chapter{\text{Diagrams}}
+\section{$CD$}
+\[
+\begin{CD}
+	A @>f(x)>g(x)> B \\
+	@VHopitalV\int_{2}^{3} \sin x^2V @VfV\text{یک}V \\
+	C @>g(x)>\sin x> D \\
+\end{CD}
+%\caption{$diagram 1$}
+\]
+\section{$XY$}
+\Time
+\[
+	\xymatrix{
+		A \ar @{-->}[r] & B \ar @{~>}[d] & \ar[l] C \\
+		D \ar[u] \ar @{.>}[urr] & E \\
+	%	F \ar @/^2pt/[uur]  
+	}
+\]
 
 
 \end{document}
