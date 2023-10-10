@@ -1,0 +1,130 @@
+\documentclass{book}
+
+\usepackage{setspace}
+\usepackage{paralist}
+\usepackage{multicol} %% Useful
+\usepackage{hyperref}
+\usepackage{shapepar}
+\usepackage{amssymb}
+\usepackage{breqn}
+\usepackage{amsfonts}
+\usepackage{subfigure}
+\usepackage{amsmath, amsthm, amscd}
+\usepackage{caption}
+\usepackage{bidipoem}
+\usepackage[all]{xy}
+\usepackage{makeidx}
+\usepackage{xepersian}
+\makeindex
+
+\settextfont{Traditional Arabic}
+\setcounter{tocdepth}{4}
+\setcounter{secnumdepth}{4}
+\setdigitfont{Traditional Arabic}
+
+\newtheorem{thm}{قضیه}[chapter]
+\newtheorem{Def}{تعریف}[section]
+
+\newcommand{\dd}{\, \mathrm{d}}
+\newcommand{\mian}[2]{\frac{#1_1 + #1_2 + \dots + #1_{#2}}{n}}
+
+\defpersianfont\BNaz{B NAZANIN.TTF}
+\deflatinfont\Time{TIMES.TTF}
+
+\huge{\title{\lr{$5th$ $File$}}}
+\author{علی}
+
+\begin{document}
+	\maketitle
+	%...
+	%\doublespacing
+	\tableofcontents
+	\singlespacing
+	%...
+	\listoffigures
+	\listoftables
+	\Time
+\chapter{\lr{Code Insertion}}
+\begin{latin}
+	\begin{verbatim}
+		close all; clear all; clc
+		A = 4; fm = 1; M = 20;
+		t = 0:(1/(M*fm)):1;
+		xs = A*cos(2*pi*fm*t);  %sampled cosine signal
+		%Quantization
+		L = 10;
+		Length_xs = length(xs);
+		xq = zeros(1, Length_xs);
+		L_level = zeros(1, Length_xs);
+		for loop = 1:Length_xs
+		for index = 1:L
+		if (A-index*(2*A)/L <=xs(loop)) && (A-(index-1)*(2*A)/L > xs(loop)) 
+		xq(loop) = A - index*(2*A)/L + A/L;
+		L_level(loop) = L-(index-1); %-------------------------------------Z1
+		end
+		end
+		if xs(loop) == A
+		xq(loop) = A - A/L;
+		L_level(loop) = L;  %-----------------------------------------Z2
+		end
+		end
+		%xq is the quantized cosine signal
+		NN = ceil(log2(L));  %---------------------------------------------Z3
+		encoded = dec2bin(L_level, NN) %-----------------------------------Z4
+		plot(t, xs, 'r-')
+		hold on
+		plot(t, xq, 'b')
+		xlabel('time')
+		ylabel('signals')
+		legend('Original signal','quantized signal')
+		
+		%% 
+		clc;
+		t = [0:.1:2*pi]; % Times at which to sample the sine function
+		sig = sin(t); % Original signal, a sine wave
+		partition = [-1:.2:1]; % Length 11, to represent 12 intervals
+		codebook = [-1.2:.2:1]; % Length 12, one entry for each interval
+		[index,quants] = quantiz(sig,partition,codebook); % Quantize.
+		plot(t,sig,'x',t,quants,'.')
+		grid on;
+		legend('Original signal','Quantized signal');
+		axis([-.2 7 -1.2 1.2])
+		%%
+		clear,
+		clc;
+		pdf='exp(-(x-m).^2/2/sigma^2)/sqrt(2*pi)/sigma'; %Gaussian pdf of x
+		xf=inline(['x.*' pdf],'x','m','sigma');
+		f=inline(pdf,'x','m','sigma');
+		m=0; sigma=1; % Mean and variance of the random variable x
+		b0=-3; bN=3; % Given least/greatest value of the random variable x
+		for N=5:6 % Number of quantization intervals
+		delta=(bN-b0)/N; 
+		b=b0+[0:N]*delta;
+		msqe=0; % Mean-Square Quantization Error
+		for i=1:N % Centroid of each interval
+		tmp1=quad(xf,b(i),b(i+1),0.01,[],m,sigma);
+		tmp2=quad(f,b(i),b(i+1),0.01,[],m,sigma);
+		tmp=tmp1/tmp2;
+		c(i)=tmp; 
+		x2f=inline(['(x-tmp).^2.*' pdf],'x','m','sigma','tmp');
+		msqe = msqe + quad(x2f,b(i),b(i+1),0.01,[],m,sigma,tmp); 
+		end
+		% Resulting boundary vector and centroid vector
+		x=b0+(bN-b0)/1000*[0:1000];
+		y(find(x<b(1)))=c(1); % Left-most interval
+		for i=1:N
+		y(find(b(i)<=x&x<b(i+1)))=c(i);
+		end
+		y(find(x>=b(N+1)))=c(N); % Right-most interval
+		subplot(2,2,N-4), 
+		plot(x,y),
+		hold on,
+		grid on % Quantization graph
+		m=0; sigma=1; fx=feval(f,x,m,sigma);
+		plot(x,fx,'r:') ;
+		% Resulting MSQE
+		end
+	\end{verbatim}
+\end{latin}
+
+\end{document}
