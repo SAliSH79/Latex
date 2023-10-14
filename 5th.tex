@@ -2,7 +2,7 @@
 
 \usepackage{setspace}
 \usepackage{paralist}
-\usepackage{multicol} %% Useful
+\usepackage{multicol} 
 \usepackage{hyperref}
 \usepackage{shapepar}
 \usepackage{amssymb}
@@ -128,9 +128,9 @@
 		end
 	\end{verbatim}
 \end{latin}
-\BNaz
-\chapter{$Tikz$}
 
+\chapter{$Tikz$}
+\BNaz
 \begin{tikzpicture}
 	\draw[color=red](0,0)--(5,5);
 	\draw[line width=2pt] (5,5)--(12,2);
@@ -150,5 +150,20 @@
 		\end{tikzpicture}
 	\end{center}
 \end{figure}
+
+
+
+\begin{figure}
+	\begin{center}
+		\begin{tikzpicture}
+			\draw[line width=1.25pt, color=magenta] (0,0) ellipse (2cm and 1cm);
+		\end{tikzpicture}
+	\end{center}
+	\label{grid2}
+	\caption{\lr{Ellipse}}
+\end{figure}
+
+در شکل \ref{grid2}
+می‌بینیم که یک بیضی رسم شده است.
 
 \end{document}
