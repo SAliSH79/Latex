@@ -14,7 +14,7 @@
 \usepackage{bidipoem}
 \usepackage[all]{xy}
 \usepackage{makeidx}
-\usepackage{tikz,pgf}
+\usepackage{tikz,pgf,pgfplots}
 \usepackage{xepersian}
 \makeindex
 
@@ -151,8 +151,6 @@
 	\end{center}
 \end{figure}
 
-
-
 \begin{figure}
 	\begin{center}
 		\begin{tikzpicture}
@@ -163,7 +161,17 @@
 	\caption{\lr{Ellipse}}
 \end{figure}
 
-در شکل \ref{grid2}
-می‌بینیم که یک بیضی رسم شده است.
+\begin{figure}
+\begin{center}
+	\begin{tikzpicture}
+		\begin{axis}
+			\addplot[domain=-20:20,blue,thick]{x^2};
+			\addplot[domain=-20:20,red,ultra thick]{x^3};
+		\end{axis}
+	\end{tikzpicture}
+\end{center}
+	\caption{\lr{addplot}}
+	\label{fig3}
+\end{figure}
 
 \end{document}
