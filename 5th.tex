@@ -15,6 +15,7 @@
 \usepackage[all]{xy}
 \usepackage{makeidx}
 \usepackage{tikz,pgf,pgfplots}
+%\usepackage{xindy,acronym,nonumberlist=true}{glossaries}
 \usepackage{xepersian}
 \makeindex
 
@@ -164,14 +165,23 @@
 \begin{figure}
 \begin{center}
 	\begin{tikzpicture}
-		\begin{axis}
-			\addplot[domain=-20:20,blue,thick]{x^2};
-			\addplot[domain=-20:20,red,ultra thick]{x^3};
+		\begin{axis}[xmin=-7,xmax=7,ymin=-45,ymax=45,
+			ylabel=$y$,
+			xlabel=$x$, %axis lines
+			title={\lr{X^2 in two shapes}},
+			legend pos=north west]
+			\addplot[domain=-5:5,blue,thick,samples=100]{x^2};
+			\addplot[domain=-5:5,cyan,ultra thick, mark=*,samples=50]{-x^2};
+			\addplot[green, ultra thick] {sin(deg(x))};
+			\addlegendentry{X^2}
+			\addlegendentry{-X^2}
+			\addlegendentry{Sin(x)}
 		\end{axis}
 	\end{tikzpicture}
 \end{center}
 	\caption{\lr{addplot}}
 	\label{fig3}
 \end{figure}
+\chapter{\lr{Glossary}}
 
 \end{document}
